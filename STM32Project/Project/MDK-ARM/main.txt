@@ -1,0 +1,66 @@
+	while(0){   // sht20??那a?豕∩??D?¯
+			SHT2x_Test();
+		  printf("???豕:%2.1f,那a?豕:%2.1f%%\r\n",g_sht2x_param.TEMP_POLL,g_sht2x_param.HUMI_HM);
+      delay_ms(500);
+	}
+	    while (0) {
+			printf("...");
+      delay_ms(500);
+	    if(TimeDisplay == 1)  {    
+      /* ??那?米㊣?～那㊣?? */
+      Time_Display(RTC_GetCounter());
+      TimeDisplay = 0;    }
+    }
+
+//	while(1)//sht10??那a?豕∩??D?¯
+//	{
+//		err += SHT10_Measure(&temp_val, &checksum, TEMP);		  //???????
+//		err += SHT10_Measure(&humi_val, &checksum, HUMI);		  //???????
+//		if(err != 0)
+//			SHT10_ConReset();
+//		else
+//		{
+//			SHT10_Calculate(temp_val, humi_val, &temp_val_real, &humi_val_real); //?????????
+//			dew_point = SHT10_CalcuDewPoint(temp_val_real, humi_val_real);		 //??????
+//		} 
+//		printf("???豕:%2.1f,那a?豕:%2.1f%%,??米????豕:%2.1f\r\n", temp_val_real, humi_val_real, dew_point);
+//      delay_ms(500);
+//	}
+		i=0;
+	  
+
+
+
+	while(0){//PM2.5∩??D?¯
+    if(distance(PMstart,PMend)>=32 ){
+			    if(PMrxbuf[(PMstart)%RLEN]==0x42 && PMrxbuf[(PMstart+1)%RLEN]==0x4d) {
+								printf("%d %d\r\n",PMstart ,PMend);
+								for(j=0;j<32;j++)
+								printf("%x ",PMrxbuf[(PMstart+j)%RLEN]);
+								PMstart=(PMstart+32)%RLEN;
+								printf("\r\n");
+								rec_flag=0;
+					}else{
+								PMstart=(PMstart+1)%RLEN;
+					}
+	}
+	
+	}
+	send_read_cmd();
+	rec_flag=0;
+	while(0){//?℅豕?∩??D?¯
+    if(distance(start,end)>=9 ) {
+					if (rxbuf[(start)%RLEN]==0xa5 && rxbuf[(start+1)%RLEN]==0x5a){
+							for(j=0;j<9;j++)
+							printf("%x ",rxbuf[(start+j)%RLEN]);
+							start=(start+9)%RLEN;
+
+							printf("\r\n");
+							delay_ms(500);
+							send_read_cmd();
+							rec_flag=0;
+					}else{
+						start=(start+1)%RLEN;
+					}
+				}
+	}	
